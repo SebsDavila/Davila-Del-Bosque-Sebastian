@@ -1,0 +1,11 @@
+{
+  "/api/*": {
+    "target": "https://test.evundile.com.mx",
+    "secure": true,
+    "changeOrigin": true,
+    "headers": {
+      "ws_key": "9QMR8FP6SFCICN2RN5U4ZNM16M5HQ4AR",
+      "output-format": "JSON"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+body{
+  color: crimson;
+
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.table {
+  margin-bottom: 50px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.btn-group {
+  display: flex;
+}
+
+.btn-primary,
+.btn-danger {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.btn-secondary {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .col-md-8,
+  .col-md-4 {
+    margin-bottom: 30px;
+  }
+}
+
+.table-wrapper {
+  max-height: 500px;
+  overflow-y: auto;
+}

@@ -1,0 +1,68 @@
+<head>
+    <title>VixCommerce</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Lista de productos</h1>
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let productos of this.productos">
+                                <tr *ngFor="let producto of productos">
+                                    <td>{{ producto.id }}</td>
+                                    <td>{{ producto.name }}</td>
+                                    <td>{{ producto.description }}</td>
+                                    <td>$ {{ producto.price }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary" (click)="editProduct(producto)"> EDITAR
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-danger" (click)="deleteProduct(producto.id)"> ELIMINAR
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h2>Crear/Editar Producto</h2>
+                <form [formGroup]="productoForm" (ngSubmit)="saveProduct()">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="name" id="name" [(ngModel)]="product.name"
+                            formControlName="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea class="form-control" name="description" id="description" [(ngModel)]="product.description"
+                            rows="3" formControlName="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio:</label>
+                        <input type="number" class="form-control" id="price" [(ngModel)]="product.price"
+                            formControlName="price">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary"
+                        (click)="productoForm.reset(); selectedProduct={ id: null, name: null, description: null, price: null }">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
